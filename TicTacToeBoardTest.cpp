@@ -45,3 +45,17 @@ TEST(TicTacToeBoardTest, turnOnePlace){
 	Piece placeOne =  boarddd.placePiece(1,1);
 	ASSERT_EQ(placeOne, X);
 }
+
+TEST(TicTacToeBoardTest, placeTaken){
+	TicTacToeBoard boarddd;
+	Piece placeOne =  boarddd.placePiece(1,1);
+	boarddd.toggleTurn();
+	placeOne = boarddd.placePiece(1,1);
+	ASSERT_EQ(placeOne, X);
+}
+
+TEST(TicTacToeBoardTest, getWinnerNotCompleted){
+		TicTacToeBoard boarddd;
+		Piece dontworryaboutit = boarddd.getWinner();
+		ASSERT_EQ(dontworryaboutit, Invalid);
+}
